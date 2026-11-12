@@ -16,14 +16,15 @@ from __future__ import annotations
 
 import os
 import sys
-import re
 from pathlib import Path
-import streamlit as st
 
-# Ensure project root is in sys.path
-_ROOT = Path(__file__).parent.resolve()
-if str(_ROOT) not in sys.path:
-    sys.path.insert(0, str(_ROOT))
+# Explicitly ensure current file's directory is the first entry in sys.path
+_FILE_DIR = os.path.dirname(os.path.abspath(__file__))
+if _FILE_DIR not in sys.path:
+    sys.path.insert(0, _FILE_DIR)
+
+import re
+import streamlit as st
 
 from config import (
     CURRENCY,

@@ -1,0 +1,45 @@
+# Environment & secrets
+.env
+*.env
+.streamlit/secrets.toml
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+.eggs/
+*.whl
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.code-workspace
+
+# ChromaDB / vector store
+chroma_db/
+*.sqlite3
+
+# Sentence-transformers model cache
+.cache/
+models/
+
+# Logs
+*.log
+logs/
+
+# Local profile storage
+profile.json
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini

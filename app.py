@@ -41,7 +41,18 @@ from chatbot.guardrails import pre_check
 import chatbot.tools as tools_module
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Auto-RAG Ingestion at startup (idempotent)
+# Streamlit Page Configuration (MUST BE FIRST STREAMLIT CALL)
+# ─────────────────────────────────────────────────────────────────────────────
+
+st.set_page_config(
+    page_title="Artha — AI Financial Chatbot",
+    page_icon="🪙",
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Auto-RAG Ingestion at startup (cached)
 # ─────────────────────────────────────────────────────────────────────────────
 
 @st.cache_resource(show_spinner=False)
@@ -50,19 +61,10 @@ def init_rag_store():
     try:
         from chatbot import rag
         rag.ingest()
-    except Exception as e:
-        # Non-fatal during cloud startup
+    except Exception:
         pass
 
 init_rag_store()
-
-# Page config
-st.set_page_config(
-    page_title="Artha — AI Financial Chatbot",
-    page_icon="🪙",
-    layout="wide",
-    initial_sidebar_state="expanded",
-)
 
 # Custom Styling
 st.markdown("""

@@ -1,18 +1,16 @@
 """
 app.py — Streamlit UI for the AI-Powered Financial Chatbot (Artha).
-
-Features:
-- Chat interface with user & assistant turns.
-- Deterministic calculation results with collapsible calculation breakdown.
-- Conceptual answers show retrieved source docs.
-- Sidebar: Profile management (view & edit), reset button, model / currency status.
-- Example clickable prompts for fast demonstration.
-- Cost Safeguards: Per-session message counter with configurable limit.
-- Auto-RAG Ingestion on startup if ChromaDB index does not exist.
-- Footer disclaimer.
 """
 
 from __future__ import annotations
+
+# Fix for ChromaDB SQLite requirement on Linux / Streamlit Community Cloud
+try:
+    __import__("pysqlite3")
+    import sys
+    sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
+except ImportError:
+    pass
 
 import os
 import sys

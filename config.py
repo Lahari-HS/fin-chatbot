@@ -53,7 +53,7 @@ EMBEDDING_MODEL: str = os.environ.get("EMBEDDING_MODEL", "all-MiniLM-L6-v2")
 # ── Chat history & Cost Safeguards ────────────────────────────────────────────
 MAX_HISTORY_TURNS: int = int(os.environ.get("MAX_HISTORY_TURNS", "20"))
 MAX_TOOL_ITERATIONS: int = int(os.environ.get("MAX_TOOL_ITERATIONS", "5"))
-MAX_MESSAGES_PER_SESSION: int = int(os.environ.get("MAX_MESSAGES_PER_SESSION", "30"))
+MAX_MESSAGES_PER_SESSION: int = int(os.environ.get("MAX_MESSAGES_PER_SESSION", "20"))
 
 # ── Guardrails ────────────────────────────────────────────────────────────────
 FLAGGED_RESPONSE_PHRASES: list[str] = ["guaranteed", "risk-free", "no risk", "assured returns"]
